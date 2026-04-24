@@ -12,23 +12,36 @@ int main(int argc, char ** argv)
 {
     vector<Triangle> triangles;
 
-    /*--------------------------
-    Buat loop untuk membuat menginputkan data triangle (3 buah X Y Z data) ke dalam
-    variable triangles
-    --------------------------*/
-    // Tambahkan di sini
+    /*--------------------------------------------------
+    Loop untuk menginputkan data triangle
+    (3 titik, masing-masing berupa X Y Z) ke dalam triangles
+    --------------------------------------------------*/
+    for (int i = 0; i < n; i++) {
+        cout << "\n--- Segitiga " << i + 1 << " ---\n";
+        float x, y, z;
 
+        cout << "Titik 1 (x y z): "; cin >> x >> y >> z;
+        Point2D t1(x, y, z);
 
-    /*------------------------*/
+        cout << "Titik 2 (x y z): "; cin >> x >> y >> z;
+        Point2D t2(x, y, z);
 
+        cout << "Titik 3 (x y z): "; cin >> x >> y >> z;
+        Point2D t3(x, y, z);
 
-    /*--------------------------
-    Implementasikan kode untuk melakukan pengecekan apakah data pada variable triangles
-    adalah "sama kaki", "sama sisi", "siku-siku", atau "sembarang"
-    --------------------------*/
-    // Tambahkan di sini
+        triangles.push_back(Triangle(t1, t2, t3));
+    }
+    /*-------------------------------------------------*/
 
-    /*------------------------*/
+    /*--------------------------------------------------
+    Pengecekan jenis setiap segitiga pada vector triangles
+    --------------------------------------------------*/
+    cout << "\n========= Hasil =========\n";
+    for (int i = 0; i < (int)triangles.size(); i++) {
+        cout << "Segitiga " << i + 1 << ": ";
+        triangles[i].TriangleType();
+    }
+    /*-------------------------------------------------*/
 
     return 0;
 }
